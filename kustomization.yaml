@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+configMapGenerator:
+- name: scripts
+  files:
+  - ./locust/locustfile.py
+
+resources:
+  - k8s/deployment-master.yaml
+  - k8s/deployment-worker.yaml
+  - k8s/service.yaml
